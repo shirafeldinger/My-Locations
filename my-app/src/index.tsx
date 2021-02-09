@@ -3,10 +3,30 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from "react-redux"
+import { createStore } from "redux"
+import { ActionTypes, LocationActions, MyLocationState } from './types';
+
+const initialState = {
+  category: [],
+  location: { name: '', address: '', category: '', coordinates: '' }
+};
+
+const reducer = (state: MyLocationState = initialState, action: LocationActions): MyLocationState => {
+  switch (action.type) {
+    case ActionTypes.setCategory:
+      return { ...state, category: action.category }
+    default:
+      return state;
+  };
+};
+let store = createStore(reducer);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
