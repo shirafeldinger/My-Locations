@@ -1,16 +1,14 @@
 
 import React from "react";
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
 import { Link, useParams } from "react-router-dom";
-import { ActionTypes, MyLocationState, Location, ParamTypes } from '../../types';
+import { MyLocationState, Location, ParamTypes } from '../../types';
 
 
 function CategoryDetails() {
     const locations = useSelector<MyLocationState>(state => state.locations) as Array<Location>;
-    const dispatch = useDispatch();
-    const { name } = useParams<ParamTypes>();
-
-    const CategoryLocations = locations.filter(location => location.category === name)
+    const categorySelected = useSelector<MyLocationState>(state => state.categorySelected) as string;
+    const CategoryLocations = locations.filter(location => location.category === categorySelected)
 
     return (
         <div className="list-group">
