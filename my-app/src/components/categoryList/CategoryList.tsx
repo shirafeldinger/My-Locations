@@ -12,8 +12,9 @@ function CategoryList() {
     return (
         <ul className="list-group">
             {categories.map((category, index) => {
-                return <button onClick={() => dispatch({ type: ActionTypes.setCategorySelected, categorySelected: category })}
-                    key={index} className={category == categorySelected ? 'categorySelected m-3 list-group-item' : "m-3 list-group-item"}>{category}</button>
+                return <div onClick={() => dispatch({ type: ActionTypes.setCategorySelected, categorySelected: category })}
+                    key={index} className={category == categorySelected ? 'categorySelected m-3 card' : "m-3 card"}>
+                    <h5 className="card-title">{category}</h5></div>
             })}
         </ul>
     );

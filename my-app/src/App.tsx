@@ -21,7 +21,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="m-3 App">
       <Router>
         <h2>My Locations</h2>
         <nav className=" d-flex align-items-center justify-content-center navbar navbar-light bg-light">

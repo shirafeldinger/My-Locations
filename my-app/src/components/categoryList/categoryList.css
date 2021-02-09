@@ -3,6 +3,12 @@
   justify-content: space-around;
   align-items: center;
 }
+.card {
+  height: 10vh;
+  width: 10vw;
+  align-items: center;
+  justify-content: center;
+}
 
 .categorySelected {
   border-color: rgb(151, 149, 149);

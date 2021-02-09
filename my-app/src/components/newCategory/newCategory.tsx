@@ -34,7 +34,7 @@ function NewCategory() {
                 <input className="form-control" type="text" onChange={(e) => { setInputCoordinates(e.target.value) }} />
                 <label >Location Name</label>
                 <input className="form-control" type="text" onChange={(e) => { setInputName(e.target.value) }} /> */}
-                <button className='m-1 btn btn-info' onClick={() => { addCategory(); addCategoryDetails() }}>Add</button>
+                <button className='m-2 btn btn-info' onClick={() => { addCategory(); addCategoryDetails() }}>Add</button>
                 <Link className='btn btn-secondary' to="/">Back </Link>
             </div>
         </div>

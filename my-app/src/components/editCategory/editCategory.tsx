@@ -23,7 +23,7 @@ function EditCategory() {
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
             <div className="m-3 form-group">
                 <input className="form-control" value={editiedCategory} type="text" onChange={(e) => { setEditiedCategory(e.target.value) }} />
-                <button className='m-1 btn btn-info' onClick={() => updateCategory()}>Update</button>
+                <button className='m-2 btn btn-info' onClick={() => updateCategory()}>Update</button>
                 <Link className='btn btn-secondary' to="/">Back </Link>
             </div>
 
