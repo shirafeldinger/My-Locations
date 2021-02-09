@@ -8,6 +8,7 @@ import CategoryList from './components/categoryList/CategoryList';
 import CategoryDetails from './components/categoryDetails/categoryDetails';
 import { useDispatch, useSelector } from 'react-redux';
 import { ActionTypes, MyLocationState } from './types';
+import EditCategory from './components/editCategory/editCategory';
 
 function App() {
   const categories = useSelector<MyLocationState>(state => state.categories) as Array<string>;
@@ -21,19 +22,22 @@ function App() {
 
   return (
     <div className="App">
-      <h1>My Locations</h1>
       <Router>
-        <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-          <Link to="/newCategory">Create new category</Link>
-          <Link onClick={() => { removeCategory(categorySelected) }} to='/'>Delete category</Link>
-          <Link to="/categoryDetails">View category</Link>
-          <Link to="/categoryDetails">Edit category</Link>
-        </div>
+        <h2>My Locations</h2>
+        <nav className=" d-flex align-items-center justify-content-center navbar navbar-light bg-light">
+          <ul className="navbar-nav flex-row ">
+            <Link className="nav-link mr-3" to="/newCategory">Create category</Link>
+            <Link className="nav-link mr-3" onClick={() => { removeCategory(categorySelected) }} to='/'>Delete category</Link>
+            <Link className="nav-link mr-3" to="/categoryDetails">View category</Link>
+            <Link className="nav-link mr-3" to="/editCategory">Edit category</Link>
+          </ul>
+        </nav>
 
         <Switch>
           <Route exact path='/' component={() => { return <CategoryList /> }} />
           <Route exact path='/newCategory' component={() => { return <NewCategory /> }} />
           <Route exact path='/categoryDetails' component={() => { return <CategoryDetails /> }} />
+          <Route exact path='/editCategory' component={() => { return <EditCategory /> }} />
         </Switch>
       </Router>
     </div>

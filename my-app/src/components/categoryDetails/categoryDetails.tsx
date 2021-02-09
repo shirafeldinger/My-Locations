@@ -16,9 +16,9 @@ function CategoryDetails() {
                 return (
                     <div key={location.name}>
                         <h3>{location.category}</h3>
-                        <li className="list-group-item">{location.name}</li>
-                        <li className="list-group-item">{location.address}</li>
-                        <li className="list-group-item">{location.coordinates}</li>
+                        <li className="list-group-item">Location name: {location.name}</li>
+                        <li className="list-group-item">Location address: {location.address}</li>
+                        <li className="list-group-item">Location coordinates: {location.coordinates}</li>
                     </div>
                 )
             })}

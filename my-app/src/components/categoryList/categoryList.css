@@ -1,5 +1,9 @@
 .list-group {
   display: flex;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
+}
+
+.categorySelected {
+  border-color: rgb(151, 149, 149);
 }
