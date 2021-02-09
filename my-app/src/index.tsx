@@ -8,7 +8,7 @@ import { createStore } from "redux"
 import { ActionTypes, LocationActions, MyLocationState } from './types';
 
 const initialState = {
-  category: [],
+  category: ['a', 'b', 'c'],
   location: { name: '', address: '', category: '', coordinates: '' }
 };
 
