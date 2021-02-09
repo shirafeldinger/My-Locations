@@ -9,13 +9,16 @@ import { ActionTypes, LocationActions, MyLocationState } from './types';
 
 const initialState = {
   categories: ['a', 'b', 'c'],
-  location: { name: '', address: '', category: '', coordinates: '' }
+  locations: [],
+  categoryChosen: ''
 };
 
 const reducer = (state: MyLocationState = initialState, action: LocationActions): MyLocationState => {
   switch (action.type) {
     case ActionTypes.setCategory:
       return { ...state, categories: action.categories }
+    case ActionTypes.setLocations:
+      return { ...state, locations: action.locations }
     default:
       return state;
   };

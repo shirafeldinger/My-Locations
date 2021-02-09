@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import NewCategory from './components/newCategory/newCategory';
 import CategoryList from './components/categoryList/CategoryList';
+import CategoryDetails from './components/categoryDetails/categoryDetails';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Switch>
           <Route exact path='/' component={() => { return <CategoryList /> }} />
           <Route exact path='/newCategory' component={() => { return <NewCategory /> }} />
+          <Route exact path='/category/:name' component={() => { return <CategoryDetails /> }} />
         </Switch>
       </Router>
     </div>
