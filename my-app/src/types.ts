@@ -7,7 +7,7 @@ export type Location = {
 
 export type MyLocationState = {
   location: Location;
-  category: Array<string>;
+  categories: Array<string>;
 };
 
 export enum ActionTypes {
@@ -16,5 +16,5 @@ export enum ActionTypes {
 
 export type LocationActions = {
   type: ActionTypes.setCategory;
-  category: Array<string>;
+  categories: Array<string>;
 };
