@@ -5,7 +5,9 @@
 }
 .card {
   height: 10vh;
-  width: 10vw;
+  min-width: 100px;
+  max-width: 300px;
+  overflow: auto;
   align-items: center;
   justify-content: center;
 }
