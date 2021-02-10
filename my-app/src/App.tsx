@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Switch, Route, Link, useLocation } from 'react-router-dom'
+import { HashRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import NewCategory from './components/newCategory/newCategory';
 import CategoryList from './components/categoryList/CategoryList';
 import CategoryDetails from './components/categoryDetails/categoryDetails';
