@@ -16,9 +16,7 @@ export enum ActionTypes {
   setLocations = "SET_LOCATION",
   setCategorySelected = "SET_CATEGORY_SELECTED",
 }
-export type ParamTypes = {
-  name: string;
-};
+
 export type LocationActions =
   | {
       type: ActionTypes.setCategory;
