@@ -22,8 +22,11 @@ const App = () => {
 
   return (
     <div className="m-3 App">
+
+      <h2>My Locations</h2>
+
       <Router>
-        <h2>My Locations</h2>
+        <h3>{categorySelected ? categorySelected : 'Categories'}</h3>
         <nav className=" d-flex align-items-center justify-content-center navbar navbar-light bg-light">
           <ul className="navbar-nav flex-row ">
             <Link className="nav-link mr-3" to="/newCategory">Create category</Link>
