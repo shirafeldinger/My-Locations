@@ -8,17 +8,25 @@ const NewCategory = () => {
     const dispatch = useDispatch();
     const [category, setCategory] = useState('')
     const [formText, setFormText] = useState('')
+    const [textStyle, setTextStyle] = useState('')
 
     const addCategory = () => {
         let newCategories = [...categories]
         if (category.length == 0) {
             setFormText('Please enter a valid category name')
+            setTextStyle('form-text alert alert-danger')
+            return;
+        } else if (newCategories.includes(category)) {
+            setFormText('Category already exists')
+            setTextStyle('form-text alert alert-danger')
             return;
         }
         newCategories.push(category)
+        setFormText('Category added')
+        setTextStyle('form-text alert alert-success')
         dispatch({ type: ActionTypes.setCategory, categories: newCategories })
         dispatch({ type: ActionTypes.setCategorySelected, categorySelected: '' })
-        alert('category added')
+        alert('category created')
 
     };
 
@@ -29,7 +37,7 @@ const NewCategory = () => {
                 <input placeholder='category name' className="form-control" type="text" onChange={(e) => { setCategory(e.target.value) }} />
                 <button className='m-2 btn btn-info' onClick={() => { addCategory() }}>Add</button>
                 <Link className='btn btn-secondary' to='/'>Go Back</Link>
-                <div className='form-text'>{formText}</div>
+                <div className={textStyle}>{formText}</div>
             </div>
         </div>
     );
