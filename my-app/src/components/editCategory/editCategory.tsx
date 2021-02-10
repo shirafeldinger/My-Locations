@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ActionTypes, MyLocationState } from '../../types';
 
 
-function EditCategory() {
+const EditCategory = () => {
     const categorySelected = useSelector<MyLocationState>(state => state.categorySelected) as string;
     const categories = useSelector<MyLocationState>(state => state.categories) as Array<string>;
     const dispatch = useDispatch();
@@ -23,8 +23,7 @@ function EditCategory() {
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
             <div className="m-3 form-group">
                 <input className="form-control" value={editiedCategory} type="text" onChange={(e) => { setEditiedCategory(e.target.value) }} />
-                <button className='m-2 btn btn-info' onClick={() => updateCategory()}>Update</button>
-                <Link className='btn btn-secondary' to="/">Back </Link>
+                <Link to="/" className='m-2 btn btn-info' onClick={() => updateCategory()}>Update</Link>
             </div>
 
         </div>

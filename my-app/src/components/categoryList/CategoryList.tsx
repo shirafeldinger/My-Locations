@@ -1,10 +1,8 @@
 import './categoryList.css';
 import { useSelector, useDispatch } from "react-redux"
 import { ActionTypes, MyLocationState } from '../../types';
-import React from 'react';
-import { Link } from 'react-router-dom';
 
-function CategoryList() {
+const CategoryList = () => {
     const categories = useSelector<MyLocationState>(state => state.categories) as Array<string>;
     const categorySelected = useSelector<MyLocationState>(state => state.categorySelected) as string;
     const dispatch = useDispatch();

@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.css';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Link, useLocation } from 'react-router-dom'
 import NewCategory from './components/newCategory/newCategory';
 import CategoryList from './components/categoryList/CategoryList';
 import CategoryDetails from './components/categoryDetails/categoryDetails';
@@ -10,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ActionTypes, MyLocationState } from './types';
 import EditCategory from './components/editCategory/editCategory';
 
-function App() {
+const App = () => {
   const categories = useSelector<MyLocationState>(state => state.categories) as Array<string>;
   const categorySelected = useSelector<MyLocationState>(state => state.categorySelected) as string;
   const dispatch = useDispatch();
@@ -18,7 +17,8 @@ function App() {
   const removeCategory = (categorySelected: string) => {
     let tempCategories = categories.filter(category => category !== categorySelected)
     dispatch({ type: ActionTypes.setCategory, categories: tempCategories })
-  }
+    dispatch({ type: ActionTypes.setCategorySelected, categorySelected: '' })
+  };
 
   return (
     <div className="m-3 App">
@@ -27,9 +27,9 @@ function App() {
         <nav className=" d-flex align-items-center justify-content-center navbar navbar-light bg-light">
           <ul className="navbar-nav flex-row ">
             <Link className="nav-link mr-3" to="/newCategory">Create category</Link>
-            <Link className="nav-link mr-3" onClick={() => { removeCategory(categorySelected) }} to='/'>Delete category</Link>
-            <Link className="nav-link mr-3" to="/categoryDetails">View category</Link>
-            <Link className="nav-link mr-3" to="/editCategory">Edit category</Link>
+            <Link style={categorySelected ? { display: 'flex' } : { display: 'none' }} className="nav-link mr-3" onClick={() => { removeCategory(categorySelected) }} to='/'>Delete category</Link>
+            <Link style={categorySelected ? { display: 'flex' } : { display: 'none' }} className="nav-link mr-3" to="/categoryDetails">View category</Link>
+            <Link style={categorySelected ? { display: 'flex' } : { display: 'none' }} className="nav-link mr-3" to="/editCategory">Edit category</Link>
           </ul>
         </nav>
 
