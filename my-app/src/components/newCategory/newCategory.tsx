@@ -1,33 +1,22 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom";
-import { ActionTypes, MyLocationState } from '../../types';
+import { ActionTypes } from '../../types';
+import useValidation from "../../useValidation";
 
 const NewCategory = () => {
-    const categories = useSelector<MyLocationState>(state => state.categories) as Array<string>;
     const dispatch = useDispatch();
-    const [category, setCategory] = useState('')
-    const [formText, setFormText] = useState('')
-    const [textStyle, setTextStyle] = useState('')
+    const [category, setCategory] = useState('');
+    const [textStyle, setTextStyle] = useState('');
+    const [formText, setFormText] = useState('');
+    const { validateCategory, categories } = useValidation(category, setFormText, setTextStyle)
 
     const addCategory = () => {
         let newCategories = [...categories]
-        if (category.length == 0) {
-            setFormText('Please enter a valid category name')
-            setTextStyle('form-text alert alert-danger')
-            return;
-        } else if (newCategories.includes(category)) {
-            setFormText('Category already exists')
-            setTextStyle('form-text alert alert-danger')
-            return;
-        }
-        newCategories.push(category)
-        setFormText('Category added')
-        setTextStyle('form-text alert alert-success')
-        dispatch({ type: ActionTypes.setCategory, categories: newCategories })
-        dispatch({ type: ActionTypes.setCategorySelected, categorySelected: '' })
-        alert('category created')
-
+        validateCategory()
+        newCategories.push(category);
+        dispatch({ type: ActionTypes.setCategory, categories: newCategories });
+        dispatch({ type: ActionTypes.setCategorySelected, categorySelected: '' });
     };
 
 
